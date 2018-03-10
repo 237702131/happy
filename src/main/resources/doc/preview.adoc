@@ -1,0 +1,13 @@
+= 接口文档
+作者: 走出趣
+v: 1.0  2018-03-08
+:toc: left
+:toclevels: 3
+:toc-title: 目  录
+:doctype: book
+:icons: font
+
+[[overview]]
+== 概要
+本文为API说明文档。
+API的说明包括：请求方式、请求地址、请求参数说明和响应消息等。
