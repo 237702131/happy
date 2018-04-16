@@ -1,5 +1,7 @@
 package com.liangbc.happy;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.liangbc.happy.domain.City;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
@@ -12,17 +14,19 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.relaxedResponseFields;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HappyApplicationTests extends BaseRestDocTest {
 
+
+    private Gson gson = new GsonBuilder().create();
 
     @Test
     public void contextLoads() throws Exception {
@@ -37,12 +41,37 @@ public class HappyApplicationTests extends BaseRestDocTest {
                 .andExpect(jsonPath("$.id").value(1))
                 .andDo(document("查询用户",
                         pathParameters(parameterWithName("id").description("用户id")),
-                                relaxedResponseFields(
-                                    fieldWithPath("id").type("String").description("城市id")
-                                )
+                        relaxedResponseFields(
+                                fieldWithPath("id").type("String").description("城市id")
+                        )
                         )
                 );
 
     }
 
+
+    @Test
+    public void create() throws Exception {
+        City city = new City();
+        city.setProvinceId(121212);
+        city.setCityName("测试");
+        city.setDescription("描述");
+
+        MvcResult resul = this.mockMvc.perform(post("/v1/user", 1).contentType(MediaType.APPLICATION_JSON_UTF8).content(gson.toJson(city)))
+                .andExpect(status().isOk())
+                .andExpect(request().asyncStarted())
+                .andExpect(request().asyncResult(CoreMatchers.instanceOf(Long.class)))
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+        mockMvc.perform(asyncDispatch(resul))
+                .andExpect(status().isOk())
+                .andDo(document("创建用户", requestFields(
+                        fieldWithPath("cityName").description("结算凭证"),
+                        fieldWithPath("description").description("结算描述"),
+                        fieldWithPath("provinceId").description("结算描述")
+                        )
+                        )
+                );
+
+    }
 }

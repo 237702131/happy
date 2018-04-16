@@ -10,26 +10,25 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 城市业务逻辑实现类
- *
- * Created by bysocket on 09/29/2017.
+ * @author 23770
  */
 @Service
 public class CityServiceImpl implements CityService {
 
     // 模拟数据库，存储 City 信息
-    private static Map<Long, City> CITY_DB = new HashMap<>();
+    private static Map<Integer, City> CITY_DB = new HashMap<>();
+
     static {
         City city = new City();
-        city.setId(1L);
+        city.setId(1);
         city.setDescription("城市描述");
         city.setCityName("北京");
-        CITY_DB.put(1L,city);
+        CITY_DB.put(1, city);
         city = new City();
-        city.setId(2L);
+        city.setId(2);
         city.setDescription("城市描述");
         city.setCityName("北京");
-        CITY_DB.put(2L,city);
+        CITY_DB.put(2, city);
     }
 
     @Override
@@ -38,25 +37,25 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City findCityById(Long id) {
+    public City findCityById(Integer id) {
         return CITY_DB.get(id);
     }
 
     @Override
-    public Long saveCity(City city) {
-        city.setId(CITY_DB.size() + 1L);
+    public Integer saveCity(City city) {
+        city.setId(CITY_DB.size() + 1);
         CITY_DB.put(city.getId(), city);
         return city.getId();
     }
 
     @Override
-    public Long updateCity(City city) {
+    public Integer updateCity(City city) {
         CITY_DB.put(city.getId(), city);
         return city.getId();
     }
 
     @Override
-    public Long deleteCity(Long id) {
+    public Integer deleteCity(Integer id) {
         CITY_DB.remove(id);
         return id;
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 城市业务逻辑接口类
- *
+ * <p>
  * Created by bysocket on 09/29/2017.
  */
 public interface CityService {
@@ -25,7 +25,7 @@ public interface CityService {
      * @param id
      * @return
      */
-    City findCityById(Long id);
+    City findCityById(Integer id);
 
     /**
      * 新增城市信息
@@ -33,7 +33,7 @@ public interface CityService {
      * @param city
      * @return
      */
-    Long saveCity(City city);
+    Integer saveCity(City city);
 
     /**
      * 更新城市信息
@@ -41,7 +41,7 @@ public interface CityService {
      * @param city
      * @return
      */
-    Long updateCity(City city);
+    Integer updateCity(City city);
 
     /**
      * 根据城市 ID,删除城市信息
@@ -49,5 +49,5 @@ public interface CityService {
      * @param id
      * @return
      */
-    Long deleteCity(Long id);
+    Integer deleteCity(Integer id);
 }

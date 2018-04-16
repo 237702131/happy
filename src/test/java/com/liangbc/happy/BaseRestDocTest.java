@@ -8,7 +8,6 @@ import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.operation.preprocess.Preprocessors;
 import org.springframework.restdocs.templates.TemplateFormats;
 import org.springframework.stereotype.Component;
-import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -25,8 +24,6 @@ public class BaseRestDocTest {
 
     @Autowired
     protected WebApplicationContext context;
-
-    protected WebTestClient webTestClient;
 
     //项目地址
     private final String appDir = System.getProperty("user.dir");
@@ -71,7 +68,7 @@ public class BaseRestDocTest {
 //            fileAppend(content, apiDir + File.separator + "request-parameters.adoc", ".参数说明");
 //            fileAppend(content, apiDir + File.separator + "response-body.adoc", ".返回结果");
 //            fileAppend(content, apiDir + File.separator + "response-fields.adoc", ".返回值说明");
-            content.append(System.getProperty("line.separator"));
+//            content.append(System.getProperty("line.separator"));
             i++;
         }
         File file = new File(adocPath);
@@ -98,7 +95,7 @@ public class BaseRestDocTest {
     private void fileAppend(StringBuilder content, String includeFileDir, String title) {
         File file = new File(includeFileDir);
         if (file.exists()) {
-            content.append("."+title).append(System.getProperty("line.separator"));
+            content.append(title).append(System.getProperty("line.separator"));
             content.append("include::").append(includeFileDir).append("[]").append(System.getProperty("line.separator"));
         }
     }

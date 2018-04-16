@@ -12,7 +12,9 @@ import reactor.core.publisher.Mono;
 import javax.annotation.Resource;
 
 /**
- * Created by liangbc on 2017/8/28.
+ *
+ * @author liangbc
+ * @date 2017/8/28
  */
 @RestController
 @RequestMapping(value = "/v1/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -24,14 +26,9 @@ public class UserController {
     private CityService cityService;
 
     @GetMapping(value = "/{id}")
-    public Mono<City> findById(@PathVariable long id) {
+    public Mono<City> findById(@PathVariable Integer id) {
         return Mono.create(cityMonoSink -> cityMonoSink.success(cityService.findCityById(id)));
     }
-
-//    @GetMapping(value = "/{id}")
-//    public City findById(@PathVariable long id) {
-//        return cityService.findCityById(id);
-//    }
 
     @RequestMapping(method = RequestMethod.GET)
     public Flux<City> findAllCity() {
@@ -44,17 +41,17 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Mono<Long> createCity(@RequestBody City city) {
+    public Mono<Integer> createCity(@RequestBody City city) {
         return Mono.create(cityMonoSink -> cityMonoSink.success(cityService.saveCity(city)));
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public Mono<Long> modifyCity(@RequestBody City city) {
+    public Mono<Integer> modifyCity(@RequestBody City city) {
         return Mono.create(cityMonoSink -> cityMonoSink.success(cityService.updateCity(city)));
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Mono<Long> modifyCity(@PathVariable("id") Long id) {
+    public Mono<Integer> modifyCity(@PathVariable("id") Integer id) {
         return Mono.create(cityMonoSink -> cityMonoSink.success(cityService.deleteCity(id)));
     }
 }
