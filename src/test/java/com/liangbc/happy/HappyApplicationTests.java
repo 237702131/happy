@@ -60,7 +60,7 @@ public class HappyApplicationTests extends BaseRestDocTest {
         MvcResult resul = this.mockMvc.perform(post("/v1/user", 1).contentType(MediaType.APPLICATION_JSON_UTF8).content(gson.toJson(city)))
                 .andExpect(status().isOk())
                 .andExpect(request().asyncStarted())
-                .andExpect(request().asyncResult(CoreMatchers.instanceOf(Long.class)))
+                .andExpect(request().asyncResult(CoreMatchers.instanceOf(Integer.class)))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
         mockMvc.perform(asyncDispatch(resul))
