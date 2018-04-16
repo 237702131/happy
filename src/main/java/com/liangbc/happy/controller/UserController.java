@@ -35,7 +35,6 @@ public class UserController {
         });
     }
 
-
     @RequestMapping(method = RequestMethod.POST)
     public Mono<Integer> createCity(@RequestBody City city) {
         return Mono.create(cityMonoSink -> cityMonoSink.success(cityService.saveCity(city)));
