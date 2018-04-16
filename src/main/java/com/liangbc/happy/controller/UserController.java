@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/v1/user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UserController {
 
-
     @Resource
     private CityService cityService;
 
