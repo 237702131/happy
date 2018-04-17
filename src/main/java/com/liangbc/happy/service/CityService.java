@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface CityService {
 
+
     /**
      * 获取城市信息列表
      *

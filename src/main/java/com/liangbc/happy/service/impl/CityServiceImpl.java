@@ -15,7 +15,6 @@ import java.util.Map;
 @Service
 public class CityServiceImpl implements CityService {
 
-    // 模拟数据库，存储 City 信息
     private static Map<Integer, City> CITY_DB = new HashMap<>();
 
     static {
