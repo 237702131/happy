@@ -3,12 +3,10 @@ package com.liangbc.happy.domain;
 import lombok.Data;
 
 /**
- * 城市实体类
- * <p>
- * Created by bysocket on 09/29/2017.
+ * @author 23770
  */
 @Data
-public class City  implements java.io.Serializable  {
+public class City implements java.io.Serializable {
 
     /**
      * 城市编号
