@@ -50,8 +50,8 @@ public class HappyApplicationTests extends BaseRestDocTest {
     }
 
     @Test
-    public void delete() throws Exception {
-        MvcResult resul = this.mockMvc.perform(put("/v1/user/{id}", 1).contentType(MediaType.APPLICATION_JSON_UTF8))
+    public void deleteTest() throws Exception {
+        MvcResult resul = this.mockMvc.perform(delete("/v1/user/{id}", 1).contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(request().asyncStarted())
                 .andExpect(request().asyncResult(CoreMatchers.instanceOf(City.class)))
