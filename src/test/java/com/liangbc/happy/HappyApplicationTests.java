@@ -50,7 +50,7 @@ public class HappyApplicationTests extends BaseRestDocTest {
     }
 
     @Test
-    public void dielte() throws Exception {
+    public void delete() throws Exception {
         MvcResult resul = this.mockMvc.perform(put("/v1/user/{id}", 1).contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(request().asyncStarted())
@@ -59,7 +59,6 @@ public class HappyApplicationTests extends BaseRestDocTest {
                 .andReturn();
         mockMvc.perform(asyncDispatch(resul))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
                 .andDo(document("删除用户",
                         pathParameters(parameterWithName("id").description("用户id"))
                         )
