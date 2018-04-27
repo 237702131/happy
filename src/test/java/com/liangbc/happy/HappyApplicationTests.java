@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class HappyApplicationTests extends BaseRestDocTest {
+public class HappyApplicationTests extends BaseRestDoc {
 
 
     private Gson gson = new GsonBuilder().create();

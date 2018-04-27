@@ -18,7 +18,7 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 
 
 @Component
-public class BaseRestDocTest {
+public class BaseRestDoc {
 
     protected MockMvc mockMvc;
 
