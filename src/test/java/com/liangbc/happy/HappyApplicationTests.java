@@ -57,13 +57,6 @@ public class HappyApplicationTests extends BaseRestDocTest {
                 .andExpect(request().asyncResult(CoreMatchers.instanceOf(Integer.class)))
                 .andDo(MockMvcResultHandlers.print())
                 .andReturn();
-        mockMvc.perform(asyncDispatch(resul))
-                .andExpect(status().isOk())
-                .andDo(document("删除用户",
-                        pathParameters(parameterWithName("id").description("用户id"))
-                        )
-                );
-
     }
 
 
