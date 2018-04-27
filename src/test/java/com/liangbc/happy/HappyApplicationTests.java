@@ -17,9 +17,9 @@ import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuild
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -44,6 +44,24 @@ public class HappyApplicationTests extends BaseRestDocTest {
                         relaxedResponseFields(
                                 fieldWithPath("id").type("String").description("城市id")
                         )
+                        )
+                );
+
+    }
+
+    @Test
+    public void dielte() throws Exception {
+        MvcResult resul = this.mockMvc.perform(put("/v1/user/{id}", 1).contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(status().isOk())
+                .andExpect(request().asyncStarted())
+                .andExpect(request().asyncResult(CoreMatchers.instanceOf(City.class)))
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+        mockMvc.perform(asyncDispatch(resul))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(1))
+                .andDo(document("删除用户",
+                        pathParameters(parameterWithName("id").description("用户id"))
                         )
                 );
 
