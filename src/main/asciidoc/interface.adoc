@@ -1,49 +1,34 @@
-include::D:\love-baby\happy\src\main\resources\doc\preview.adoc[]
+include::D:\projects\happy\src\main\resources\doc\preview.adoc[]
 
 === 1、创建用户
 curl-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\curl-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\curl-request.adoc[]
 http-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\http-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\http-request.adoc[]
 http-response.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\http-response.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\http-response.adoc[]
 httpie-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\httpie-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\httpie-request.adoc[]
 request-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\request-body.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\request-body.adoc[]
 request-fields.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\request-fields.adoc[]
+include::D:\projects\happy\target\generated-snippets\创建用户\request-fields.adoc[]
 response-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\创建用户\response-body.adoc[]
-=== 2、删除用户
+include::D:\projects\happy\target\generated-snippets\创建用户\response-body.adoc[]
+=== 2、查询用户
 curl-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\curl-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\curl-request.adoc[]
 http-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\http-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\http-request.adoc[]
 http-response.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\http-response.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\http-response.adoc[]
 httpie-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\httpie-request.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\httpie-request.adoc[]
 path-parameters.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\path-parameters.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\path-parameters.adoc[]
 request-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\request-body.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\request-body.adoc[]
 response-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\删除用户\response-body.adoc[]
-=== 3、查询用户
-curl-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\curl-request.adoc[]
-http-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\http-request.adoc[]
-http-response.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\http-response.adoc[]
-httpie-request.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\httpie-request.adoc[]
-path-parameters.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\path-parameters.adoc[]
-request-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\request-body.adoc[]
-response-body.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\response-body.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\response-body.adoc[]
 response-fields.adoc
-include::D:\love-baby\happy\target\generated-snippets\查询用户\response-fields.adoc[]
+include::D:\projects\happy\target\generated-snippets\查询用户\response-fields.adoc[]
